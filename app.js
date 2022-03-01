@@ -91,8 +91,7 @@ const phoneDetails =(datas)=>{
   </div>
   <div class="card-body ps-5">
     <h5 class="card-title">${datas.name}</h5>
-    <p class="card-text">${datas.brand}</p>
-    <p class="card-text">${datas.releaseDate?datas.releaseDate:'Not Available'}</p>
+    <p class="card-text">Brand: ${datas.brand} <br>Release Date: ${datas.releaseDate?datas.releaseDate:'Not Available'} <br>Main Features:<br> </p>
     <p class="card-text">${datas.brand}</p>
     <p class="card-text">${datas.brand}</p>
   </div>
