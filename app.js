@@ -1,3 +1,7 @@
+const displayStyle=(style)=>{
+
+}
+
 const searchPhone=()=>{
     const searchField = document.getElementById('search-field');
     const searchText = searchField.value;
@@ -44,14 +48,26 @@ const phoneDetailsButton=id=>{
   .then(info=>phoneDetails(info.data))
 }
 const phoneDetails =(datas)=>{
-  // console.log(datas.mainFeatures)
-  const data = datas.mainFeatures;
-  console.log(data)
+  // console.log(datas)
+  const dataMainFeature = datas.mainFeatures;
+  const dataOthers = datas.others;
+  const sensor =datas.mainFeatures.sensors;
+  // console.log(dataMainFeature)
+  // console.log(dataOthers);
+  // console.log(sensor)
   const detailsParent = document.getElementById('phone-details');
+  detailsParent.style.display='block';
   detailsParent.textContent='';
+  const div = document.createElement('div');
+  div.classList.add('card');
+  div.innerHTML=`
+  <img src="${datas.image}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">${datas.name}</h5>
+    <p class="card-text">${datas.brand}</p>
+  </div>
 
-
-
-
+  `
+  detailsParent.appendChild(div);
 
 }
