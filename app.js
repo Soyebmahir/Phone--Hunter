@@ -14,7 +14,7 @@ const searchPhone=()=>{
     fetch(url)
     .then(res=>res.json())
     .then(phone=>{
-      console.log(phone)
+      // console.log(phone)
       if(phone.data==0){
         toggleShow('error','block');
         toggleShow('spinner','none');
@@ -78,22 +78,20 @@ const phoneDetails =(datas)=>{
   console.log(dataMainFeature)
   console.log(dataOthers);
   console.log(sensor)
-  console.log(datas)
+  
   const detailsParent = document.getElementById('phone-details');
   // detailsParent.style.display='block';
   toggleShow('phone-details','block')
   detailsParent.textContent='';
   const div = document.createElement('div');
-  div.classList.add('d-flex', 'justify-content-center','mx-auto','h-100');
+  div.classList.add('d-md-flex', 'justify-content-center','mx-auto','h-100');
   div.innerHTML=`
-  <div>
+  <div class="w-50">
   <img src="${datas.image}" class="card-img-top w-100" alt="PHONE IMAGE">
   </div>
-  <div class="card-body ps-5">
+  <div class="card-body overflow-auto w-50">
     <h5 class="card-title">${datas.name}</h5>
-    <p class="card-text">Brand: ${datas.brand} <br>Release Date: ${datas.releaseDate?datas.releaseDate:'Not Available'} <br>Main Features:<br> </p>
-    <p class="card-text">${datas.brand}</p>
-    <p class="card-text">${datas.brand}</p>
+    <p class="card-text ">Brand : ${datas.brand} <br>Release Date: ${datas.releaseDate?datas.releaseDate:'Not Available'} <br><b class="text-info">Main Features:</b><br>ChipSet : ${dataMainFeature.chipSet} <br> Display Size : ${dataMainFeature.displaySize}<br>Memory : ${dataMainFeature.memory} <br>Storage : ${dataMainFeature.storage} <br><b class="text-info">Sensors :</b> <br> ${sensor}<br> <b class="text-info">Others :</b><br>Bluetooth : ${dataOthers.bluetooth}<br>GPS : ${dataOthers.GPS}<br>NFC : ${dataOthers.NFC}, Radio : ${dataOthers.Radio}<br>USB : ${dataOthers.USB}<br>WLAN : ${dataOthers.WLAN} </p>
   </div>
 
   `
