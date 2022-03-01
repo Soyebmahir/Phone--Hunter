@@ -5,16 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <title></title>
+    <title>Smart Phone Legacy</title>
 </head>
-<body class="mt-4">
+<body class="mt-4 ">
 <header>
     <!-- search bar  -->
-    <h1 class="text-center text-success">Smart Phone legacy</h1>
-    <div class="input-group mb-3 w-50 mx-auto">
-        <input id="search-field" type="text" class="form-control" placeholder="Search by your favourite Phone" aria-label="Recipient's username" aria-describedby="button-addon2">
-        <button onclick="searchPhone()" class="btn btn-outline-secondary" type="button" id="button-search">Search</button>
-      </div>
+    <div class="bg-info w-75 mx-auto rounded">
+      <h1 class="text-center text-dark">Smart Phone legacy</h1>
+      <div class="input-group mb-3 w-50 mx-auto">
+          <input id="search-field" type="text" class="form-control mb-4" placeholder="Search by your favourite Phone" aria-label="Recipient's username" aria-describedby="button-addon2">
+          <button onclick="searchPhone()" class="btn btn-outline-dark mb-4" type="button" id="button-search">Search</button>
+        </div>
+    </div>
+  
 <!----------------------------- Spinner -->
 <div  class="d-flex justify-content-center">
   <div id="spinner" class="spinner-border text-success" role="status">
@@ -39,7 +42,7 @@
 
 <!--------------------------- display All search result -->
 <section>
-    <div id="search-result" class="row row-cols-1 row-cols-md-3 g-4 m-5 rounded ">
+    <div id="search-result" class="row row-cols-1 row-cols-md-3 g-1  rounded ">
             
       </div>
 </section>
