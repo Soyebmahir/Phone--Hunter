@@ -41,12 +41,11 @@ const displayAllPhone =info=>{
 
 const displaySearchResult = document.getElementById('search-result');
 displaySearchResult.textContent='';
-console.log(info.length);
+
 const datas =info.slice(0,20)
-// for (let i=0;i<20;i++){
-    // let data = info[i];
+
     datas.forEach(data => {
-      // console.log(data.length);
+      
     const div=document.createElement('div');
     div.classList.add('col','shadow', 'p-3')
     div.innerHTML=`
