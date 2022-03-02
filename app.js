@@ -41,10 +41,12 @@ const displayAllPhone =info=>{
 
 const displaySearchResult = document.getElementById('search-result');
 displaySearchResult.textContent='';
-console.log(info[0]);
-for (let i=0;i<20;i++){
-    let data = info[i];
-    
+console.log(info.length);
+const datas =info.slice(0,20)
+// for (let i=0;i<20;i++){
+    // let data = info[i];
+    datas.forEach(data => {
+      // console.log(data.length);
     const div=document.createElement('div');
     div.classList.add('col','shadow', 'p-3')
     div.innerHTML=`
@@ -59,7 +61,7 @@ for (let i=0;i<20;i++){
     `
     displaySearchResult.appendChild(div);
     toggleShow('spinner','none');
-}
+})
 }
 
 //Getting API of single phone details------------>
