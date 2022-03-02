@@ -11,12 +11,12 @@ const searchPhone=()=>{
     searchField.value='';
     toggleShow('phone-details','none')
     toggleShow('spinner','block');
-    // console.log(searchText);
+    
     const url =`https://openapi.programming-hero.com/api/phones?search=${searchText}`
     fetch(url)
     .then(res=>res.json())
     .then(phone=>{
-      // console.log(phone)
+     
 // Error handling---------------->
       if(phone.data==0){
         toggleShow('error','block');
@@ -38,13 +38,12 @@ const searchPhone=()=>{
 
 // Display all result after searching by a name 
 const displayAllPhone =info=>{
-// console.log(info);
+
 const displaySearchResult = document.getElementById('search-result');
 displaySearchResult.textContent='';
 console.log(info[0]);
 for (let i=0;i<20;i++){
     let data = info[i];
-    // toggleShow('search-result','block')
     
     const div=document.createElement('div');
     div.classList.add('col','shadow', 'p-3')
@@ -66,7 +65,6 @@ for (let i=0;i<20;i++){
 //Getting API of single phone details------------>
 const phoneDetailsButton=id=>{
   toggleShow('spinner','block');
-  // console.log(id);
   const url=`https://openapi.programming-hero.com/api/phone/${id}`
   fetch(url)
   .then(res=>res.json())
@@ -80,7 +78,6 @@ const phoneDetailsButton=id=>{
 //Getting everything from api about phone details
 const phoneDetails =(datas)=>{
   
-  // console.log(datas)
   const dataMainFeature = datas.mainFeatures;
   const dataOthers = datas.others;
   const sensor =datas.mainFeatures.sensors;
@@ -89,7 +86,6 @@ const phoneDetails =(datas)=>{
   console.log(sensor)
   
   const detailsParent = document.getElementById('phone-details');
-  // detailsParent.style.display='block';
   toggleShow('phone-details','block')
   detailsParent.textContent='';
   const div = document.createElement('div');
