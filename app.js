@@ -3,15 +3,18 @@ const toggleShow=(id,displyStyle)=>{
   document.getElementById(id).style.display=displyStyle;
   
 }
+const searchFieldText =(id)=>{
+  const searchField = document.getElementById(id);
+  const searchText = searchField.value;
+  searchField.value='';
+  return searchText;
+}
 
 // getting input key and create dynamic api 
 const searchPhone=()=>{
-    const searchField = document.getElementById('search-field');
-    const searchText = searchField.value;
-    searchField.value='';
+  const searchText = searchFieldText('search-field');
     toggleShow('phone-details','none')
     toggleShow('spinner','block');
-    
     const url =`https://openapi.programming-hero.com/api/phones?search=${searchText}`
     fetch(url)
     .then(res=>res.json())
@@ -42,10 +45,15 @@ const displayAllPhone =info=>{
 const displaySearchResult = document.getElementById('search-result');
 displaySearchResult.textContent='';
 
+if(info.length>20){
+  // console.log(info.length);
+  
+
 const datas =info.slice(0,20)
 
     datas.forEach(data => {
-      
+      // document.getElementById('show-more').style.display='block';
+     
     const div=document.createElement('div');
     div.classList.add('col','shadow', 'p-3')
     div.innerHTML=`
@@ -57,10 +65,62 @@ const datas =info.slice(0,20)
     </div>
     <p class="text-center"><a onclick=phoneDetailsButton('${data.slug}') class="btn btn-default bg-info" href="#" role="button">Details</a></p>
   </div>
+     
     `
+    toggleShow('show-more','block')
     displaySearchResult.appendChild(div);
     toggleShow('spinner','none');
+    
+   
 })
+
+//from here it's show more part--------->
+document.getElementById('show-more').addEventListener('click',()=>{
+
+const infos = info.slice(20,info.length);
+infos.forEach(data=>{
+  
+  
+  const div=document.createElement('div');
+  div.classList.add('col','shadow', 'p-3')
+  div.innerHTML=`
+  <div class="card h-100 bg-secondary shadow">
+  <img src="${data.image?data.image:'Not available'}" class="card-img-top w-75  h-75 mx-auto rounded" alt="...">
+  <div class="card-body">
+    <h5 class="card-title text-light">${data.phone_name}</h5>
+    <p class="card-text text-light">${data.brand}</p>
+  </div>
+  <p class="text-center"><a onclick=phoneDetailsButton('${data.slug}') class="btn btn-default bg-info" href="#" role="button">Details</a></p>
+</div>
+   
+  `
+  toggleShow('show-more','none')
+  displaySearchResult.appendChild(div);
+  toggleShow('spinner','none');
+
+})
+})
+}
+else{
+  info.forEach(data => { 
+      const div=document.createElement('div');
+      div.classList.add('col','shadow', 'p-3')
+      div.innerHTML=`
+      <div class="card h-100 bg-secondary shadow">
+      <img src="${data.image?data.image:'Not available'}" class="card-img-top w-75  h-75 mx-auto rounded" alt="...">
+      <div class="card-body">
+        <h5 class="card-title text-light">${data.phone_name}</h5>
+        <p class="card-text text-light">${data.brand}</p>
+      </div>
+      <p class="text-center"><a onclick=phoneDetailsButton('${data.slug}') class="btn btn-default bg-info" href="#" role="button">Details</a></p>
+      </div>
+      
+      `
+  toggleShow('show-more','none')
+  displaySearchResult.appendChild(div);
+  toggleShow('spinner','none');
+})
+}
 }
 
 //Getting API of single phone details------------>
@@ -105,3 +165,6 @@ const phoneDetails =(datas)=>{
   toggleShow('spinner','none');
 
 }
+
+
+  
