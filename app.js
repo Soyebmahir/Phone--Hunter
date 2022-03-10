@@ -157,7 +157,7 @@ const phoneDetails = (datas) => {
   </div>
   <div class="card-body overflow-auto w-50">
     <h5 class="card-title">${datas.name}</h5>
-    <p class="card-text ">Brand : ${datas.brand} <br>Release Date: ${datas.releaseDate?datas.releaseDate:'Not Available'} <br><b class="text-info">Main Features:</b><br>ChipSet : ${dataMainFeature.chipSet} <br> Display Size : ${dataMainFeature.displaySize}<br>Memory : ${dataMainFeature.memory} <br>Storage : ${dataMainFeature.storage} <br><b class="text-info">Sensors :</b> <br> ${sensor}<br> <b class="text-info">Others :</b><br>Bluetooth : ${dataOthers.bluetooth?dataOthers.bluetooth:'Not Available'}<br>GPS : ${dataOthers.GPS}<br>NFC : ${dataOthers.NFC}, Radio : ${dataOthers.Radio}<br>USB : ${dataOthers.USB}<br>WLAN : ${dataOthers.WLAN} </p>
+    <p class="card-text ">Brand : ${datas.brand} <br>Release Date: ${datas.releaseDate?datas.releaseDate:'Not Available'} <br><b class="text-info">Main Features:</b><br>ChipSet : ${dataMainFeature.chipSet} <br> Display Size : ${dataMainFeature.displaySize}<br>Memory : ${dataMainFeature.memory} <br>Storage : ${dataMainFeature.storage} <br><b class="text-info">Sensors :</b> <br> ${sensor}<br> <b class="text-info">Others :</b><br>Bluetooth : ${dataOthers.bluetooth?dataOthers.bluetooth:'Not Available'}<br>GPS : ${dataOthers.GPS? dataOthers.GPS : 'Not Available'}<br>NFC : ${dataOthers.NFC? dataOthers.NFC :'Not Available'}, Radio : ${dataOthers.Radio? dataOthers.Radio : 'Not Available'}<br>USB : ${dataOthers.USB?dataOthers.USB :'Not Available'}<br>WLAN : ${dataOthers.WLAN?dataOthers.WLAN :'Not Available'} </p>
   </div>
 
   `
