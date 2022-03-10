@@ -1,12 +1,15 @@
 #phone-details {
   display: none;
 }
+
 #spinner {
   display: none;
 }
+
 #error {
   display: none;
 }
+
 #show-more {
   display: none;
 }
